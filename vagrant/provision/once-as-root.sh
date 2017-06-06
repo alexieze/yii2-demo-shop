@@ -53,6 +53,9 @@ apt-get install -y elasticsearch
 sed -i 's/-Xms2g/-Xms64m/' /etc/elasticsearch/jvm.options
 sed -i 's/-Xmx2g/-Xmx64m/' /etc/elasticsearch/jvm.options
 
+info "Install Redis"
+apt-get install -y redis-server
+
 info "Configure MySQL"
 sed -i "s/.*bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf
 mysql -uroot <<< "CREATE USER 'root'@'%' IDENTIFIED BY ''"
